@@ -1,0 +1,140 @@
+<h2 class="contact__title">Entre em contato</h2>
+<section class="contact__container">
+  <form class="contact-form" [formGroup]="formContato">
+    <input
+      type="text"
+      placeholder="Digite seu nome"
+      formControlName="nome"
+      [class.valid]="formContato.controls['nome'].valid"
+      [class.invalid]="
+        formContato.controls['nome'].invalid &&
+        (formContato.controls['nome'].touched ||
+          formContato.controls['nome'].dirty)
+      "
+    />
+    <div
+      *ngIf="
+        formContato.controls['nome'].invalid &&
+        (formContato.controls['nome'].touched ||
+          formContato.controls['nome'].dirty)
+      "
+    >
+      <small
+        class="error-message"
+        *ngIf="formContato.controls['nome'].hasError('minlength')"
+        >O campo deve ter no mínimo 4 caracteres
+      </small>
+      <small
+        class="error-message"
+        *ngIf="formContato.controls['nome'].hasError('required')"
+        >O campo deve ser preenchido
+      </small>
+    </div>
+    <input
+      type="assunto"
+      placeholder="Digite o assunto"
+      formControlName="assunto"
+    />
+    <div
+      *ngIf="
+        formContato.controls['assunto'].invalid &&
+        (formContato.controls['assunto'].touched ||
+          formContato.controls['assunto'].dirty)
+      "
+    >
+      <small
+        class="error-message"
+        *ngIf="formContato.controls['assunto'].hasError('minlength')"
+        >O campo deve ter no mínimo 10 caracteres
+      </small>
+      <small
+        class="error-message"
+        *ngIf="formContato.controls['assunto'].hasError('required')"
+        >O campo deve ser preenchido
+      </small>
+    </div>
+    <input
+      type="tel"
+      placeholder="(00) 0 0000-0000"
+      mask="(00) 0 0000-0000"
+      formControlName="telefone"
+    />
+    <div
+      *ngIf="
+        formContato.controls['telefone'].invalid &&
+        (formContato.controls['telefone'].touched ||
+          formContato.controls['telefone'].dirty)
+      "
+    >
+      <small
+        class="error-message"
+        *ngIf="formContato.controls['telefone'].hasError('minlength')"
+        >O campo deve ter no mínimo 11 caracteres
+      </small>
+      <small
+        class="error-message"
+        *ngIf="formContato.controls['telefone'].hasError('required')"
+        >O campo deve ser preenchido
+      </small>
+    </div>
+    <input
+      type="email"
+      placeholder="Digite o seu e-mail"
+      formControlName="email"
+    />
+    <div
+      *ngIf="
+        formContato.controls['email'].invalid &&
+        (formContato.controls['email'].touched ||
+          formContato.controls['email'].dirty)
+      "
+    >
+      <small
+        class="error-message"
+        *ngIf="formContato.controls['email'].hasError('email')"
+        >O campo deve ter um e-mail válido
+      </small>
+      <small
+        class="error-message"
+        *ngIf="formContato.controls['email'].hasError('required')"
+        >O campo deve ser preenchido
+      </small>
+    </div>
+    <textarea
+      maxlength="300"
+      placeholder="Digite a sua mensagem..."
+      formControlName="mensagem"
+    ></textarea>
+    <div
+      *ngIf="
+        formContato.controls['mensagem'].invalid &&
+        (formContato.controls['mensagem'].touched ||
+          formContato.controls['mensagem'].dirty)
+      "
+    >
+      <small
+        class="error-message"
+        *ngIf="formContato.controls['mensagem'].hasError('minlength')"
+        >O campo deve ter no mínimo 20 caracteres
+      </small>
+      <small
+        class="error-message"
+        *ngIf="formContato.controls['mensagem'].hasError('required')"
+        >O campo deve ser preenchido
+      </small>
+    </div>
+    <button>Enviar</button>
+  </form>
+  <address>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.5752415768493!2d-49.07249608544859!3d-26.916972399863834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94df18c3b4a71d65%3A0xa5ec9dd8406a6a7!2sProWay!5e0!3m2!1spt-BR!2sbr!4v1660767406997!5m2!1spt-BR!2sbr"
+      width="600"
+      height="450"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+    <p>R. 7 de Setembro, 1600 - 14º andar - Centro, Blumenau - SC, 89010-204</p>
+  </address>
+</section>
